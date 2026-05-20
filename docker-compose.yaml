@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  airflow-webserver-scheduler:
+    image: apache/airflow:2.7.1-python3.10
+    command: standalone
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./scripts:/opt/airflow/scripts
+      - ./data:/opt/airflow/data
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__CORE__EXECUTOR=SequentialExecutor
+      - _PIP_ADDITIONAL_REQUIREMENTS=pandas scikit-learn folium scipy
+    user: "${AIRFLOW_UID:-50000}:0"
