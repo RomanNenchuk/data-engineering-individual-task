@@ -96,6 +96,6 @@ def generate_bi_map(input_filepath: Path, output_filepath: Path):
 
 if __name__ == "__main__":
     INPUT_FILE = PROJECT_ROOT / "data" / "processed" / "clustered_hospitals.csv"
-    OUTPUT_FILE = PROJECT_ROOT / "data" / "output" / "medical_infrastructure_map.html"
+    OUTPUT_FILE = PROJECT_ROOT / "data" / "output" / "index.html"
     
     generate_bi_map(INPUT_FILE, OUTPUT_FILE)
